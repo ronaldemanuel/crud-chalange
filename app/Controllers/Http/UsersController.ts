@@ -14,4 +14,13 @@ export default class UsersController {
     const user = await User.create(data)
     return user
   }
+
+  public async show({ params, response }: HttpContextContract) {
+    try {
+      const user = User.findOrFail(params.id)
+      return user
+    } catch (error) {
+      return response.status(404).json({ message: 'user not found' })
+    }
+  }
 }
