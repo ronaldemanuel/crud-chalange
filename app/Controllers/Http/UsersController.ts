@@ -36,4 +36,14 @@ export default class UsersController {
       response.status(404).json({ message: 'user not found' })
     }
   }
+
+  public async destroy({ params, response }: HttpContextContract) {
+    try {
+      const user = await User.findOrFail(params.id)
+      await user.delete()
+      return user
+    } catch (error) {
+      response.status(404).json({ message: 'user not found' })
+    }
+  }
 }
