@@ -1,6 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
 import StoreValidator from 'App/Validators/User/StoreValidator'
+import UpdateValidator from 'App/Validators/User/UpdateValidator'
 
 export default class UsersController {
   // eslint-disable-next-line prettier/prettier
@@ -21,6 +22,18 @@ export default class UsersController {
       return user
     } catch (error) {
       return response.status(404).json({ message: 'user not found' })
+    }
+  }
+
+  public async update({ params, request, response }: HttpContextContract) {
+    const data = await request.validate(UpdateValidator)
+    try {
+      const user = await User.findOrFail(params.id)
+      user.merge(data)
+      await user.save()
+      return user
+    } catch (error) {
+      response.status(404).json({ message: 'user not found' })
     }
   }
 }
