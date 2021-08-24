@@ -4,9 +4,9 @@ import StoreValidator from 'App/Validators/User/StoreValidator'
 import UpdateValidator from 'App/Validators/User/UpdateValidator'
 
 export default class UsersController {
-  // eslint-disable-next-line prettier/prettier
-  public async index({ }) {
-    const users = await User.query()
+  public async index({ request }: HttpContextContract) {
+    const { limit, offset = 1 } = request.qs()
+    const users = limit ? await User.query().paginate(offset, limit) : await User.query()
     return users
   }
 
