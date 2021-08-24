@@ -2,8 +2,9 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class StoreValidator {
-  // eslint-disable-next-line prettier/prettier
-  constructor(protected ctx: HttpContextContract) { }
+  constructor(protected ctx: HttpContextContract) {
+    return
+  }
 
   public schema = schema.create({
     userName: schema.string({}, [rules.required(), rules.minLength(2)]),
