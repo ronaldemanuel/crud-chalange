@@ -5,35 +5,43 @@ export default class PermissionSeeder extends BaseSeeder {
   public async run() {
     await Permission.createMany([
       {
-        name: 'read_self',
+        slug: 'read_self',
+        name: 'Read self',
         description: 'Can see your information',
       },
       {
-        name: 'update_self',
+        slug: 'update_self',
+        name: 'Update self',
         description: 'Can update your data',
       },
       {
-        name: 'delete_self',
+        slug: 'delete_self',
+        name: 'Delete self',
         description: 'Can delete yourself',
       },
       {
-        name: 'create_user',
+        slug: 'create_user',
+        name: 'Create user',
         description: 'Can create a common user',
       },
       {
-        name: 'read_user',
+        slug: 'read_user',
+        name: 'Read user',
         description: 'Can read user data',
       },
       {
-        name: 'update_user',
+        slug: 'update_user',
+        name: 'Update user',
         description: 'Can update user data',
       },
       {
-        name: 'delete_user',
+        slug: 'delete_user',
+        name: 'Delete user',
         description: 'Can delete a common user',
       },
       {
-        name: 'create_anyone',
+        slug: 'create_anyone',
+        name: 'Create anyone',
         description: 'Can create any type of user',
       },
     ])
