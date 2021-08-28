@@ -5,7 +5,7 @@ export default class Permissions extends BaseSchema {
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+      table.increments('id').primary()
       table.string('name').notNullable().unique()
       table.text('description').notNullable()
       table.timestamp('created_at', { useTz: true })
