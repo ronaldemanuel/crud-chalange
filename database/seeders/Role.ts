@@ -5,16 +5,19 @@ export default class RoleSeeder extends BaseSeeder {
   public async run() {
     await Role.createMany([
       {
-        name: 'global',
+        slug: 'global',
+        name: 'Global',
         description: 'Has all permissions',
       },
       {
-        name: 'admin',
+        slug: 'admin',
+        name: 'Administrator',
         description:
           'Has common user creation permissions. Reading, updating and deleting both the common and the same',
       },
       {
-        name: 'user',
+        slug: 'user',
+        name: 'User',
         description: 'Can perform actions with himself',
       },
     ])
