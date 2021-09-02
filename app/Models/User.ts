@@ -33,5 +33,5 @@ export default class User extends BaseModel {
   }
 
   @manyToMany(() => Role)
-  public role: ManyToMany<typeof Role>
+  public roles: ManyToMany<typeof Role>
 }
