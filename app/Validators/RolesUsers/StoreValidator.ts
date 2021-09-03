@@ -11,6 +11,6 @@ export default class StoreValidator {
   })
 
   public messages = {
-    'id.required': 'É obrigatório passar o id da regra',
+    'id.required': 'É obrigatório passar o id do papel',
   }
 }
