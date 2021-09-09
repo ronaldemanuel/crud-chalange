@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
+import Permission from './Permission'
 
 export default class Role extends BaseModel {
   @column({ isPrimary: true })
@@ -23,4 +24,7 @@ export default class Role extends BaseModel {
 
   @manyToMany(() => User)
   public users: ManyToMany<typeof User>
+
+  @manyToMany(() => Permission)
+  public permissions: ManyToMany<typeof Permission>
 }
