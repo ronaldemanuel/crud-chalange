@@ -6,7 +6,7 @@ import StoreValidator from 'App/Validators/PermissionsRoles/StoreValidator'
 export default class PermissionsRolesController {
   public async index({ params, response }: HttpContextContract) {
     try {
-      const role = await Role.findOrFail(params.roles_id)
+      const role = await Role.findOrFail(params.role_id)
       const permissions = await role.related('permissions').query()
 
       return permissions
