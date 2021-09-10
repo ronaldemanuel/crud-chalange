@@ -22,3 +22,6 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.resource('users', 'UsersController').apiOnly()
 Route.post('login', 'AuthController.store')
+Route.resource('users.roles', 'RolesUsersController').apiOnly()
+Route.resource('users.permissions', 'PermissionsUsersController').apiOnly()
+Route.resource('roles.permissions', 'PermissionsRolesController').apiOnly()
